@@ -6,13 +6,14 @@ import {
   CssBaseline,
   AppBar,
   Toolbar,
-} from '@material-ui/core';
-import Form from './form';
-import Chart from './chart';
+} from '@mui/material';
+import Form from 'components/form';
+import Chart from 'components/chart';
+import EstimationsList from 'components/estimations-list';
 
 const App: React.FC = () => {
   return (
-    <React.Fragment>
+    <>
       <CssBaseline />
       <AppBar
         position="absolute"
@@ -24,26 +25,32 @@ const App: React.FC = () => {
         }}
       >
         <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Company name
+          <Typography variant="h6" component="h1" noWrap>
+            Carbon Emissions Estimator
           </Typography>
         </Toolbar>
       </AppBar>
       <Container component="main" sx={{mt: 7}}>
-        <Paper variant="outlined" sx={{my: {xs: 3, md: 6}, p: {xs: 2, md: 3}}}>
-          <Typography component="h2" variant="h3" align="center" sx={{p: 2}}>
+        <Paper sx={{my: {xs: 3, md: 6}, p: {xs: 2, md: 3}}}>
+          <Typography component="h2" variant="h4" align="center" sx={{p: 2}}>
             Electricity Usage
           </Typography>
           <Form />
         </Paper>
-        <Paper variant="outlined" sx={{my: {xs: 3, md: 6}, p: {xs: 2, md: 3}}}>
-          <Typography component="h2" variant="h3" align="center" sx={{p: 2}}>
+        <Paper sx={{my: {xs: 3, md: 6}, p: {xs: 2, md: 3}}}>
+          <Typography component="h2" variant="h4" align="center" sx={{p: 2}}>
+            Estimations
+          </Typography>
+          <EstimationsList />
+        </Paper>
+        <Paper sx={{my: {xs: 3, md: 6}, p: {xs: 2, md: 3}}}>
+          <Typography component="h2" variant="h4" align="center" sx={{p: 2}}>
             Chart
           </Typography>
           <Chart />
         </Paper>
       </Container>
-    </React.Fragment>
+    </>
   );
 };
 

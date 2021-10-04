@@ -9,14 +9,11 @@ export const store = configureStore({
     [estimationsSliceName]: reducer,
   },
   middleware: (getDefaultMiddleware) => {
-    const middleware = getDefaultMiddleware({serializableCheck: false});
-    middleware.concat(estimationApi.middleware);
-
     if (process.env.NODE_ENV === 'development') {
-      return middleware.concat(logger);
+      return getDefaultMiddleware().concat([logger, estimationApi.middleware]);
     }
 
-    return middleware;
+    return getDefaultMiddleware().concat(estimationApi.middleware);
   },
 });
 
