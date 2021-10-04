@@ -1,11 +1,14 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import Form from './form';
-import {render, screen, waitFor} from '../test-utils';
+import {render, screen, waitFor} from '../../test-utils';
 import fetchMock from 'jest-fetch-mock';
+import {estimationApi} from '../../services/estimation-api';
+import {store} from '../../store';
 
 describe('<Form />', () => {
   beforeEach(() => {
+    store.dispatch(estimationApi.util.resetApiState());
     fetchMock.resetMocks();
   });
 
@@ -20,7 +23,7 @@ describe('<Form />', () => {
     await screen.findByText('United Stated of America');
     userEvent.click(screen.getByText('United Stated of America'));
     userEvent.type(
-      screen.getByRole('textbox', {name: 'Electricity usage'}),
+      screen.getByRole('spinbutton', {name: 'Electricity usage'}),
       '123'
     );
     userEvent.click(screen.getByText('Save'));
@@ -48,7 +51,7 @@ describe('<Form />', () => {
     await screen.findByText('United Stated of America');
     userEvent.click(screen.getByText('France'));
     userEvent.type(
-      screen.getByRole('textbox', {name: 'Electricity usage'}),
+      screen.getByRole('spinbutton', {name: 'Electricity usage'}),
       '123'
     );
     userEvent.click(screen.getByText('Save'));
@@ -73,7 +76,7 @@ describe('<Form />', () => {
     await screen.findByText('United Stated of America');
     userEvent.click(screen.getByText('United Stated of America'));
     userEvent.type(
-      screen.getByRole('textbox', {name: 'Electricity usage'}),
+      screen.getByRole('spinbutton', {name: 'Electricity usage'}),
       '123'
     );
     userEvent.click(screen.getByText('Save'));
@@ -81,11 +84,15 @@ describe('<Form />', () => {
     userEvent.click(screen.getByRole('button', {name: 'Close'}));
 
     await waitFor(() =>
-      expect(screen.getByText('Estimation created!')).not.toBeVisible()
+      expect(screen.queryByText('Estimation created!')).not.toBeInTheDocument()
     );
   });
 
   test('should validate the inputs', async () => {
+    fetchMock.mockResponse(
+      JSON.stringify([{data: {id: 'id', attributes: {}}}])
+    );
+
     render(<Form />);
 
     userEvent.click(screen.getByText('Save'));
@@ -93,8 +100,6 @@ describe('<Form />', () => {
     await waitFor(() =>
       expect(screen.getByText('Please select a location')).toBeVisible()
     );
-    expect(
-      screen.getByText('Please enter a value greater than 0')
-    ).toBeVisible();
+    expect(screen.getByText('Please enter a value')).toBeVisible();
   });
 });

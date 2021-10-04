@@ -3,9 +3,9 @@ import _uniqBy from 'lodash/uniqBy';
 
 export const availableUnits = [
   {value: 'carbon_g', name: 'g'},
-  {value: 'carbon_lb', name: 'Lb'},
+  {value: 'carbon_lb', name: 'lg'},
   {value: 'carbon_kg', name: 'Kg'},
-  {value: 'carbon_mt', name: 'Mt'},
+  {value: 'carbon_mt', name: 'MT'},
 ];
 
 export const getCountryFromISOCode = (code: string): string => {

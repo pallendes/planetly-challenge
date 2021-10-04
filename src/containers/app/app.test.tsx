@@ -1,7 +1,7 @@
 import React from 'react';
 import fetchMock from 'jest-fetch-mock';
 import App from './app';
-import {render, screen} from '../test-utils';
+import {render, screen} from '../../test-utils';
 
 describe('<App />', () => {
   beforeEach(() => {

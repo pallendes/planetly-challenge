@@ -11,7 +11,7 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import {useGetEstimationsQuery} from 'services/estimation-api';
-import {availableCountries, getCountryFromISOCode} from './utils';
+import {availableCountries, getCountryFromISOCode} from '../utils';
 
 const EstimationsList: React.FC = () => {
   const {data, isFetching} = useGetEstimationsQuery();
@@ -20,31 +20,32 @@ const EstimationsList: React.FC = () => {
   const [selectedCountryFilter, setSelectedCountryFilter] =
     useState<string>('');
   const [rows, setRows] = useState<GridRowsProp>([]);
+  const [columns, setColumns] = useState<Array<GridColDef>>([]);
 
   useEffect(() => {
-    setRows(mapDataToRows());
-  }, [data]);
-
-  const buildColumns = () => {
-    const columns: GridColDef[] = [
+    const coldefs: GridColDef[] = [
       {field: 'countryName', headerName: 'Country'},
-      {field: 'electricity_unit', headerName: 'Unit'},
       {field: 'electricity_value', headerName: 'Value'},
-      {field: 'carbon_g', headerName: 'CO2 G'},
-      {field: 'carbon_kg', headerName: 'CO2 KG'},
-      {field: 'carbon_lb', headerName: 'CO2 lb'},
-      {field: 'carbon_mt', headerName: 'CO2 MT'},
+      {field: 'electricity_unit', headerName: 'Unit'},
+      {field: 'carbon_g', headerName: 'CO2 (g)'},
+      {field: 'carbon_kg', headerName: 'CO2 (Kg)'},
+      {field: 'carbon_lb', headerName: 'CO2 (lb)'},
+      {field: 'carbon_mt', headerName: 'CO2 (MT)'},
     ];
 
     if (notMobile) {
-      return columns.map((column) => ({
+      const autoSizedColsDef = coldefs.map((column) => ({
         ...column,
         flex: 1,
       }));
+
+      setColumns(autoSizedColsDef);
+    } else {
+      setColumns(coldefs);
     }
 
-    return columns;
-  };
+    setRows(mapDataToRows());
+  }, [data, notMobile]);
 
   const mapDataToRows = (): GridRowsProp => {
     if (!data) {
@@ -92,13 +93,13 @@ const EstimationsList: React.FC = () => {
             <Grid container justifyContent="flex-end" flexDirection="row">
               <Grid item xs={12} sm={4}>
                 <FormControl variant="standard" sx={{width: '100%'}}>
-                  <InputLabel id="electricity-unit-label">
+                  <InputLabel id="country-filter-label">
                     Filter by country
                   </InputLabel>
                   <Select
-                    labelId="electricity-unit-label"
-                    id="electricityUnit"
-                    label="Unit of measurement"
+                    labelId="country-filter-label"
+                    id="countryFilter"
+                    label="Filter by country"
                     onChange={handleCountrySelectorFilter}
                     value={selectedCountryFilter}
                   >
@@ -119,7 +120,7 @@ const EstimationsList: React.FC = () => {
             </Grid>
           </Grid>
           <Grid item xs={12} sx={{height: 400}}>
-            <DataGrid columns={buildColumns()} rows={rows} />
+            <DataGrid columns={columns} rows={rows} />
           </Grid>
         </>
       )}

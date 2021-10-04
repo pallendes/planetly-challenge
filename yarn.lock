@@ -1921,9 +1921,9 @@
     loader-utils "^2.0.0"
 
 "@testing-library/dom@^8.0.0", "@testing-library/dom@^8.7.1":
-  version "8.7.1"
-  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/@testing-library/dom/-/dom-8.7.1.tgz#c17b1e90e682c7945b2d88ce2f078e522c775ce3"
-  integrity sha1-wXsekOaCx5RbLYjOLweOUix3XOM=
+  version "8.7.2"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/@testing-library/dom/-/dom-8.7.2.tgz#234315c6971be380fc9cbf0b031ada3e9f0bfe09"
+  integrity sha1-I0MVxpcb44D8nL8LAxraPp8L/gk=
   dependencies:
     "@babel/code-frame" "^7.10.4"
     "@babel/runtime" "^7.12.5"

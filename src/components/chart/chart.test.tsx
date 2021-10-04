@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, screen, waitFor} from '../test-utils';
+import {render, screen, waitFor} from '../../test-utils';
 import Chart from './chart';
 import fetchMock from 'jest-fetch-mock';
 import userEvent from '@testing-library/user-event';
@@ -50,9 +50,9 @@ describe('<Chart />', () => {
     userEvent.click(
       screen.getByRole('button', {name: 'Unit of measurement Kg'})
     );
-    await screen.findByText('Mt');
-    userEvent.click(screen.getByText('Mt'));
+    await screen.findByText('MT');
+    userEvent.click(screen.getByText('MT'));
 
-    expect(screen.getByText('16710.48Mt')).toBeInTheDocument();
+    expect(screen.getByText('16.71MT')).toBeInTheDocument();
   });
 });

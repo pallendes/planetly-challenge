@@ -4,11 +4,11 @@ import {
   render,
   screen,
   waitForElementToBeRemoved,
-} from '../test-utils';
+} from '../../test-utils';
 import EstimationsList from './estimations-list';
 import fetchMock from 'jest-fetch-mock';
-import {estimationApi} from '../services/estimation-api';
-import {store} from '../store';
+import {estimationApi} from '../../services/estimation-api';
+import {store} from '../../store';
 import userEvent from '@testing-library/user-event';
 
 describe('<EstimationsList />', () => {

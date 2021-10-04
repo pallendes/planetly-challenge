@@ -6,7 +6,6 @@ import {
   Form as FormComponent,
   FormikHelpers,
 } from 'formik';
-import {useDispatch} from 'react-redux';
 import * as Yup from 'yup';
 import {
   Button,
@@ -19,35 +18,25 @@ import {
   FormHelperText,
   Snackbar,
   Alert,
-  AlertColor,
 } from '@mui/material';
-import {ElectricityUnits} from 'types';
-import {availableCountries} from './utils';
+import {availableCountries} from '../utils';
 import {
   useCreateEstimationMutation,
   useGetEstimationsQuery,
 } from 'services/estimation-api';
-import {actions} from 'containers/slice';
-
-interface EstimationForm {
-  location: string;
-  electricityUsage: number;
-  electricityUnit: ElectricityUnits;
-}
+import {EstimationForm, NotificationSeverity} from './types';
 
 const Form: React.FC = () => {
-  const [createEstimation, {error}] = useCreateEstimationMutation();
+  const [createEstimation, {isLoading}] = useCreateEstimationMutation();
   const {refetch} = useGetEstimationsQuery();
-  const dispatch = useDispatch();
 
   const [showNotification, setShowNotification] = useState<boolean>(false);
-  const [notificationSeverity, setNotificationSeverity] = useState<
-    AlertColor | undefined
-  >();
+  const [notificationSeverity, setNotificationSeverity] =
+    useState<NotificationSeverity | null>(null);
 
   const initialValues: EstimationForm = {
     location: '',
-    electricityUsage: 0,
+    electricityUsage: '',
     electricityUnit: 'kwh',
   };
 
@@ -55,7 +44,7 @@ const Form: React.FC = () => {
     location: Yup.string().required('Please select a location'),
     electricityUsage: Yup.number()
       .typeError('Please enter a valid number')
-      .required('Please enter a value for your electricity usage')
+      .required('Please enter a value')
       .moreThan(0, 'Please enter a value greater than 0'),
     electricityUnit: Yup.string().required('Please select a measurment unit'),
   });
@@ -65,48 +54,51 @@ const Form: React.FC = () => {
     {resetForm}: FormikHelpers<EstimationForm>
   ) => {
     try {
-      const createdEstimation = await createEstimation({
+      await createEstimation({
         type: 'electricity',
         country: data.location,
         electricity_unit: data.electricityUnit,
-        electricity_value: data.electricityUsage,
+        electricity_value: Number(data.electricityUsage),
       }).unwrap();
 
       resetForm();
 
-      dispatch(actions.saveEstimation(createdEstimation.data));
-
       setShowNotification(true);
-      setNotificationSeverity('success');
+      setNotificationSeverity({
+        severity: 'success',
+        message: 'Estimation created!',
+      });
+
       refetch();
     } catch (e) {
       setShowNotification(true);
-      setNotificationSeverity('error');
+      setNotificationSeverity({
+        severity: 'error',
+        message:
+          'An error ocurred trying to save your estimation, please try again',
+      });
     }
   };
 
   const handleNotificationClose = () => {
     setShowNotification(false);
-    setNotificationSeverity(undefined);
+    setNotificationSeverity(null);
   };
 
   return (
     <>
       <Snackbar
         open={showNotification}
-        // autoHideDuration={6000}
+        autoHideDuration={5000}
         onClose={handleNotificationClose}
-        message="Estimation created"
-        anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+        anchorOrigin={{vertical: 'top', horizontal: 'center'}}
       >
         <Alert
           onClose={handleNotificationClose}
-          severity={notificationSeverity}
+          severity={notificationSeverity?.severity}
           sx={{width: '100%'}}
         >
-          {!error
-            ? 'Estimation created!'
-            : 'An error ocurred trying to save your estimation, please try again'}
+          {notificationSeverity?.message}
         </Alert>
       </Snackbar>
       <Formik
@@ -151,6 +143,7 @@ const Form: React.FC = () => {
               {({field, meta: {error, touched}}: FieldProps) => (
                 <TextField
                   required
+                  type="number"
                   id="electricityUsage"
                   label="Electricity usage"
                   fullWidth
@@ -187,7 +180,7 @@ const Form: React.FC = () => {
               <Button sx={{mr: 2}} type="reset">
                 Reset
               </Button>
-              <Button variant="contained" type="submit">
+              <Button variant="contained" type="submit" disabled={isLoading}>
                 Save
               </Button>
             </Grid>

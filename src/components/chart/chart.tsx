@@ -9,6 +9,7 @@ import {
   Typography,
   CircularProgress,
 } from '@mui/material';
+import _get from 'lodash/get';
 import {
   BarChart,
   Bar,
@@ -16,58 +17,50 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   Cell,
   ResponsiveContainer,
 } from 'recharts';
-import {availableUnits, dedupEstimations, getCountryFromISOCode} from './utils';
+import {
+  availableUnits,
+  dedupEstimations,
+  getCountryFromISOCode,
+} from '../utils';
 import {useGetEstimationsQuery} from 'services/estimation-api';
-
-interface DetailsText {
-  country: string;
-  emissions: string;
-}
-
-interface ChartProps {
-  selectedBar?: string;
-}
+import {ChartData, ChartProps, DetailsText} from './types';
 
 const Chart: React.FC<ChartProps> = ({selectedBar}) => {
-  const {data, isLoading} = useGetEstimationsQuery();
+  const {data, isFetching} = useGetEstimationsQuery();
 
   const [selectedUnit, setSelectedUnit] = useState<string>('carbon_kg');
   const [selectedUnitLabel, setSelectedUnitLabel] = useState<string>('Kg');
   const [selectedBarIndex, setSelectedBarIndex] = useState<number>(-1);
+  const [chartData, setChartData] = useState<Array<ChartData>>([]);
   const [details, setDetails] = useState<DetailsText | null>(null);
 
   useEffect(() => {
-    if (selectedBar && !isLoading) {
+    const data = buildData();
+    setChartData(data);
+
+    if (selectedBar && !isFetching) {
       setSelectedBarIndex(Number(selectedBar));
-
-      const data = buildData();
-
       setDetails({
         country: getCountryFromISOCode(data[0].name),
         emissions: data[0].CO2,
       });
     }
-  }, [selectedBar, isLoading]);
+  }, [selectedBar, isFetching, data, selectedUnit]);
 
-  const buildData = () => {
+  const buildData = (): Array<ChartData> => {
     if (!data) {
       return [];
     }
 
     const estimations = dedupEstimations(data);
 
-    return estimations.map(({attributes}) => {
-      return {
-        name: attributes.country.toUpperCase(),
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        CO2: attributes[selectedUnit],
-      };
-    });
+    return estimations.map(({attributes}) => ({
+      name: attributes.country.toUpperCase(),
+      CO2: _get(attributes, selectedUnit),
+    }));
   };
 
   const handleUnitSelection = (e: SelectChangeEvent) => {
@@ -77,8 +70,7 @@ const Chart: React.FC<ChartProps> = ({selectedBar}) => {
     );
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleBarClick = (data: any, index: number) => {
+  const handleBarClick = (data: ChartData, index: number) => {
     const countryName = getCountryFromISOCode(data.name);
 
     setDetails({country: countryName, emissions: data.CO2});
@@ -94,7 +86,7 @@ const Chart: React.FC<ChartProps> = ({selectedBar}) => {
       alignItems="center"
       justifyContent="center"
     >
-      {isLoading ? (
+      {isFetching ? (
         <Grid item xs={12} sx={{height: 400}}>
           <Grid
             container
@@ -107,13 +99,18 @@ const Chart: React.FC<ChartProps> = ({selectedBar}) => {
         </Grid>
       ) : (
         <>
+          <Grid item xs={12}>
+            <Typography component="h3" variant="h6" sx={{textAlign: 'center'}}>
+              Carbon emissions ({selectedUnitLabel})
+            </Typography>
+          </Grid>
           <Grid item xs={12} sm={8} data-testid="chart-container">
             <ResponsiveContainer
               width={process.env.NODE_ENV === 'test' ? 400 : '100%'}
               height={500}
             >
               <BarChart
-                data={buildData()}
+                data={chartData}
                 margin={{
                   top: 5,
                   right: 30,
@@ -125,9 +122,8 @@ const Chart: React.FC<ChartProps> = ({selectedBar}) => {
                 <XAxis dataKey="name" allowDuplicatedCategory={false} />
                 <YAxis />
                 <Tooltip />
-                <Legend />
                 <Bar dataKey="CO2" onClick={handleBarClick}>
-                  {buildData().map((entry, index) => (
+                  {chartData.map((entry, index) => (
                     <Cell
                       cursor="pointer"
                       fill={index === selectedBarIndex ? '#82ca9d' : '#8884d8'}
@@ -142,12 +138,12 @@ const Chart: React.FC<ChartProps> = ({selectedBar}) => {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <FormControl variant="standard" sx={{width: '100%'}}>
-                  <InputLabel id="electricity-unit-label">
+                  <InputLabel id="chart-unit-label">
                     Unit of measurement
                   </InputLabel>
                   <Select
-                    labelId="electricity-unit-label"
-                    id="electricityUnit"
+                    labelId="chart-unit-label"
+                    id="chartUnit"
                     label="Unit of measurement"
                     value={selectedUnit}
                     onChange={handleUnitSelection}
