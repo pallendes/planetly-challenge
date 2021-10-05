@@ -30,12 +30,12 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "SERVICE_URL=https://www.carboninterface.com react-scripts start",
-    "start:stubs": "SERVICE_URL=http://localhost:8882 concurrently --kill-others \"react-scripts start\" \"yarn stubby\"",
+    "start": "cross-env SERVICE_URL=https://www.carboninterface.com react-scripts start",
+    "start:stubs": "cross-env SERVICE_URL=http://localhost:8882 concurrently --kill-others \"react-scripts start\" \"yarn stubby\"",
     "stubby": "stubby -d stubs/stubby-config.yml -w -q",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage",
-    "test:watch": "react-scripts test --coverage -w",
+    "test": "react-scripts test --coverage --watchAll=false",
+    "test:watch": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "prettier": "prettier --check 'src/**/*.{ts,tsx}'",
     "prettier:fix": "prettier --write 'src/**/*.{ts,tsx}'",
@@ -61,6 +61,7 @@
     "@typescript-eslint/eslint-plugin": "4.32.0",
     "@typescript-eslint/parser": "4.32.0",
     "concurrently": "^6.3.0",
+    "cross-env": "^7.0.3",
     "css-mediaquery": "^0.1.2",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
@@ -76,7 +77,9 @@
   },
   "jest": {
     "coveragePathIgnorePatterns": [
-      "src/store.ts"
+      "src/store.ts",
+      "src/index",
+      "src/reportWebVitals"
     ]
   }
 }
