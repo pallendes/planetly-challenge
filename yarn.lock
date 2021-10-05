@@ -2772,6 +2772,11 @@ argparse@^1.0.7:
   dependencies:
     sprintf-js "~1.0.2"
 
+argparse@^2.0.1:
+  version "2.0.1"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/argparse/-/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
+  integrity sha1-JG9Q88p4oyQPbJl+ipvR6sSeSzg=
+
 aria-query@^4.2.2:
   version "4.2.2"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/aria-query/-/aria-query-4.2.2.tgz#0d2ca6c9aceb56b8977e9fed6aed7e15bbd2f83b"
@@ -2918,6 +2923,11 @@ async-limiter@~1.0.0:
   version "1.0.1"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/async-limiter/-/async-limiter-1.0.1.tgz#dd379e94f0db8310b08291f9d64c3209766617fd"
   integrity sha1-3TeelPDbgxCwgpH51kwyCXZmF/0=
+
+async@0.9.x:
+  version "0.9.2"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/async/-/async-0.9.2.tgz#aea74d5e61c1f899613bf64bda66d4c78f2fd17d"
+  integrity sha1-rqdNXmHB+JlhO/ZL2mbUx48v0X0=
 
 async@^2.6.2:
   version "2.6.3"
@@ -3718,6 +3728,15 @@ cliui@^6.0.0:
     strip-ansi "^6.0.0"
     wrap-ansi "^6.2.0"
 
+cliui@^7.0.2:
+  version "7.0.4"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/cliui/-/cliui-7.0.4.tgz#a0265ee655476fc807aea9df3df8df7783808b4f"
+  integrity sha1-oCZe5lVHb8gHrqnfPfjfd4OAi08=
+  dependencies:
+    string-width "^4.2.0"
+    strip-ansi "^6.0.0"
+    wrap-ansi "^7.0.0"
+
 clsx@^1.1.1:
   version "1.1.1"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/clsx/-/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
@@ -3789,6 +3808,11 @@ color@^3.0.0:
   dependencies:
     color-convert "^1.9.3"
     color-string "^1.6.0"
+
+colors@>=0.6.0:
+  version "1.4.0"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/colors/-/colors-1.4.0.tgz#c50491479d4c1bdaed2c9ced32cf7c7dc2360f78"
+  integrity sha1-xQSRR51MG9rtLJztMs98fcI2D3g=
 
 combined-stream@^1.0.8:
   version "1.0.8"
@@ -3863,6 +3887,20 @@ concat-stream@^1.5.0:
     inherits "^2.0.3"
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
+
+concurrently@^6.3.0:
+  version "6.3.0"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/concurrently/-/concurrently-6.3.0.tgz#63128cb4a6ed54d3c0ed8528728590a5fe54582a"
+  integrity sha1-YxKMtKbtVNPA7YUocoWQpf5UWCo=
+  dependencies:
+    chalk "^4.1.0"
+    date-fns "^2.16.1"
+    lodash "^4.17.21"
+    rxjs "^6.6.3"
+    spawn-command "^0.0.2-1"
+    supports-color "^8.1.0"
+    tree-kill "^1.2.2"
+    yargs "^16.2.0"
 
 confusing-browser-globals@^1.0.10:
   version "1.0.10"
@@ -4429,6 +4467,11 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
+date-fns@^2.16.1:
+  version "2.24.0"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/date-fns/-/date-fns-2.24.0.tgz#7d86dc0d93c87b76b63d213b4413337cfd1c105d"
+  integrity sha1-fYbcDZPIe3a2PSE7RBMzfP0cEF0=
+
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   version "2.6.9"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -4797,6 +4840,13 @@ ejs@^2.6.1:
   version "2.7.4"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/ejs/-/ejs-2.7.4.tgz#48661287573dcc53e366c7a1ae52c3a120eec9ba"
   integrity sha1-SGYSh1c9zFPjZsehrlLDoSDuybo=
+
+ejs@^3.1.6:
+  version "3.1.6"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/ejs/-/ejs-3.1.6.tgz#5bfd0a0689743bb5268b3550cceeebbc1702822a"
+  integrity sha1-W/0KBol0O7UmizVQzO7rvBcCgio=
+  dependencies:
+    jake "^10.6.1"
 
 electron-to-chromium@^1.3.564, electron-to-chromium@^1.3.854:
   version "1.3.857"
@@ -5516,6 +5566,13 @@ file-uri-to-path@1.0.0:
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
   integrity sha1-VTp7hEb/b2hDWcRF8eN6BdrMM90=
 
+filelist@^1.0.1:
+  version "1.0.2"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/filelist/-/filelist-1.0.2.tgz#80202f21462d4d1c2e214119b1807c1bc0380e5b"
+  integrity sha1-gCAvIUYtTRwuIUEZsYB8G8A4Dls=
+  dependencies:
+    minimatch "^3.0.4"
+
 filesize@6.1.0:
   version "6.1.0"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/filesize/-/filesize-6.1.0.tgz#e81bdaa780e2451d714d71c0d7a4f3238d37ad00"
@@ -5770,7 +5827,7 @@ gensync@^1.0.0-beta.1, gensync@^1.0.0-beta.2:
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
   integrity sha1-MqbudsPX9S1GsrGuXZP+qFgKJeA=
 
-get-caller-file@^2.0.1:
+get-caller-file@^2.0.1, get-caller-file@^2.0.5:
   version "2.0.5"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
   integrity sha1-T5RBKoLbMvNuOwuXQfipf+sDH34=
@@ -6838,6 +6895,21 @@ istanbul-reports@^3.0.2:
     html-escaper "^2.0.0"
     istanbul-lib-report "^3.0.0"
 
+isutf8@^3.1.1:
+  version "3.1.1"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/isutf8/-/isutf8-3.1.1.tgz#3f2ac77f49affb23ae54813da1a4ab44aadf1d7b"
+  integrity sha1-PyrHf0mv+yOuVIE9oaSrRKrfHXs=
+
+jake@^10.6.1:
+  version "10.8.2"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/jake/-/jake-10.8.2.tgz#ebc9de8558160a66d82d0eadc6a2e58fbc500a7b"
+  integrity sha1-68nehVgWCmbYLQ6txqLlj7xQCns=
+  dependencies:
+    async "0.9.x"
+    chalk "^2.4.2"
+    filelist "^1.0.1"
+    minimatch "^3.0.4"
+
 jest-changed-files@^26.6.2:
   version "26.6.2"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/jest-changed-files/-/jest-changed-files-26.6.2.tgz#f6198479e1cc66f22f9ae1e22acaa0b429c042d0"
@@ -7308,6 +7380,13 @@ js-yaml@^3.13.1:
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
+
+js-yaml@^4.0.0:
+  version "4.1.0"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/js-yaml/-/js-yaml-4.1.0.tgz#c1fb65f8f5017901cdd2c951864ba18458a10602"
+  integrity sha1-wftl+PUBeQHN0slRhkuhhFihBgI=
+  dependencies:
+    argparse "^2.0.1"
 
 jsdom@^16.4.0:
   version "16.7.0"
@@ -7896,7 +7975,7 @@ mime-types@^2.1.12, mime-types@^2.1.27, mime-types@~2.1.17, mime-types@~2.1.24:
   dependencies:
     mime-db "1.50.0"
 
-mime@1.6.0:
+mime@1.6.0, mime@^1.2.9:
   version "1.6.0"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
   integrity sha1-Ms2eXGRVO9WNGaVor0Uqz/BJgbE=
@@ -7947,6 +8026,11 @@ minimist@^1.1.1, minimist@^1.2.0, minimist@^1.2.5:
   version "1.2.5"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha1-Z9ZgFLZqaoqqDAg8X9WN9OTpdgI=
+
+minimist@~0.0.1:
+  version "0.0.10"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
+  integrity sha1-3j+YVD2/lggr5IrRoMfNqDYwHc8=
 
 minipass-collect@^1.0.2:
   version "1.0.2"
@@ -8224,6 +8308,15 @@ node-releases@^1.1.61, node-releases@^1.1.76:
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/node-releases/-/node-releases-1.1.77.tgz#50b0cfede855dd374e7585bf228ff34e57c1c32e"
   integrity sha1-ULDP7ehV3TdOdYW/Io/zTlfBwy4=
 
+node-static@^0.7.11:
+  version "0.7.11"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/node-static/-/node-static-0.7.11.tgz#60120d349f3cef533e4e820670057eb631882e7f"
+  integrity sha1-YBINNJ8871M+ToIGcAV+tjGILn8=
+  dependencies:
+    colors ">=0.6.0"
+    mime "^1.2.9"
+    optimist ">=0.3.4"
+
 normalize-package-data@^2.3.2, normalize-package-data@^2.5.0:
   version "2.5.0"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/normalize-package-data/-/normalize-package-data-2.5.0.tgz#e66db1838b200c1dfc233225d12cb36520e234a8"
@@ -8450,6 +8543,14 @@ opn@^5.5.0:
   integrity sha1-/HFk+rVtI1kExRw7J9pnWMo7m/w=
   dependencies:
     is-wsl "^1.1.0"
+
+optimist@>=0.3.4:
+  version "0.6.1"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/optimist/-/optimist-0.6.1.tgz#da3ea74686fa21a19a111c326e90eb15a0196686"
+  integrity sha1-2j6nRob6IaGaERwybpDrFaAZZoY=
+  dependencies:
+    minimist "~0.0.1"
+    wordwrap "~0.0.2"
 
 optimize-css-assets-webpack-plugin@5.0.4:
   version "5.0.4"
@@ -10462,6 +10563,13 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
+rxjs@^6.6.3:
+  version "6.6.7"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/rxjs/-/rxjs-6.6.7.tgz#90ac018acabf491bf65044235d5863c4dab804c9"
+  integrity sha1-kKwBisq/SRv2UEQjXVhjxNq4BMk=
+  dependencies:
+    tslib "^1.9.0"
+
 safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
@@ -10889,6 +10997,11 @@ sourcemap-codec@^1.4.4:
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz#ea804bd94857402e6992d05a38ef1ae35a9ab4c4"
   integrity sha1-6oBL2UhXQC5pktBaOO8a41qatMQ=
 
+spawn-command@^0.0.2-1:
+  version "0.0.2-1"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/spawn-command/-/spawn-command-0.0.2-1.tgz#62f5e9466981c1b796dc5929937e11c9c6921bd0"
+  integrity sha1-YvXpRmmBwbeW3Fkpk34RycaSG9A=
+
 spdx-correct@^3.0.0:
   version "3.1.1"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/spdx-correct/-/spdx-correct-3.1.1.tgz#dece81ac9c1e6713e5f7d1b6f17d468fa53d89a9"
@@ -11183,6 +11296,16 @@ strip-json-comments@^3.1.0, strip-json-comments@^3.1.1:
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/strip-json-comments/-/strip-json-comments-3.1.1.tgz#31f1281b3832630434831c310c01cccda8cbe006"
   integrity sha1-MfEoGzgyYwQ0gxwxDAHMzajL4AY=
 
+stubby@^5.1.0:
+  version "5.1.0"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/stubby/-/stubby-5.1.0.tgz#94dc7e0ab597cc36efc7e6d0249fbd24d0ffc3b4"
+  integrity sha1-lNx+CrWXzDbvx+bQJJ+9JND/w7Q=
+  dependencies:
+    ejs "^3.1.6"
+    isutf8 "^3.1.1"
+    js-yaml "^4.0.0"
+    node-static "^0.7.11"
+
 style-loader@1.3.0:
   version "1.3.0"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/style-loader/-/style-loader-1.3.0.tgz#828b4a3b3b7e7aa5847ce7bae9e874512114249e"
@@ -11223,6 +11346,13 @@ supports-color@^7.0.0, supports-color@^7.1.0:
   version "7.2.0"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/supports-color/-/supports-color-7.2.0.tgz#1b7dcdcb32b8138801b3e478ba6a51caa89648da"
   integrity sha1-G33NyzK4E4gBs+R4umpRyqiWSNo=
+  dependencies:
+    has-flag "^4.0.0"
+
+supports-color@^8.1.0:
+  version "8.1.1"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/supports-color/-/supports-color-8.1.1.tgz#cd6fc17e28500cff56c1b86c0a7fd4a54a73005c"
+  integrity sha1-zW/BfihQDP9WwbhsCn/UpUpzAFw=
   dependencies:
     has-flag "^4.0.0"
 
@@ -11484,6 +11614,11 @@ tr46@^2.1.0:
   dependencies:
     punycode "^2.1.1"
 
+tree-kill@^1.2.2:
+  version "1.2.2"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/tree-kill/-/tree-kill-1.2.2.tgz#4ca09a9092c88b73a7cdc5e8a01b507b0790a0cc"
+  integrity sha1-TKCakJLIi3OnzcXooBtQeweQoMw=
+
 tryer@^1.0.1:
   version "1.0.1"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/tryer/-/tryer-1.0.1.tgz#f2c85406800b9b0f74c9f7465b81eaad241252f8"
@@ -11504,7 +11639,7 @@ tsconfig-paths@^3.11.0:
     minimist "^1.2.0"
     strip-bom "^3.0.0"
 
-tslib@^1.10.0, tslib@^1.8.1:
+tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.14.1"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
@@ -12089,6 +12224,11 @@ word-wrap@^1.2.3, word-wrap@~1.2.3:
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
   integrity sha1-YQY29rH3A4kb00dxzLF/uTtHB5w=
 
+wordwrap@~0.0.2:
+  version "0.0.3"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/wordwrap/-/wordwrap-0.0.3.tgz#a3d5da6cd5c0bc0008d37234bbaf1bed63059107"
+  integrity sha1-o9XabNXAvAAI03I0u68b7WMFkQc=
+
 workbox-background-sync@^5.1.4:
   version "5.1.4"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/workbox-background-sync/-/workbox-background-sync-5.1.4.tgz#5ae0bbd455f4e9c319e8d827c055bb86c894fd12"
@@ -12274,6 +12414,15 @@ wrap-ansi@^6.2.0:
     string-width "^4.1.0"
     strip-ansi "^6.0.0"
 
+wrap-ansi@^7.0.0:
+  version "7.0.0"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
+  integrity sha1-Z+FFz/UQpqaYS98RUpEdadLrnkM=
+  dependencies:
+    ansi-styles "^4.0.0"
+    string-width "^4.1.0"
+    strip-ansi "^6.0.0"
+
 wrappy@1:
   version "1.0.2"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
@@ -12321,6 +12470,11 @@ y18n@^4.0.0:
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/y18n/-/y18n-4.0.3.tgz#b5f259c82cd6e336921efd7bfd8bf560de9eeedf"
   integrity sha1-tfJZyCzW4zaSHv17/Yv1YN6e7t8=
 
+y18n@^5.0.5:
+  version "5.0.8"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/y18n/-/y18n-5.0.8.tgz#7f4934d0f7ca8c56f95314939ddcd2dd91ce1d55"
+  integrity sha1-f0k00PfKjFb5UxSTndzS3ZHOHVU=
+
 yallist@^3.0.2:
   version "3.1.1"
   resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/yallist/-/yallist-3.1.1.tgz#dbb7daf9bfd8bac9ab45ebf602b8cbad0d5d08fd"
@@ -12351,6 +12505,11 @@ yargs-parser@^18.1.2:
   dependencies:
     camelcase "^5.0.0"
     decamelize "^1.2.0"
+
+yargs-parser@^20.2.2:
+  version "20.2.9"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/yargs-parser/-/yargs-parser-20.2.9.tgz#2eb7dc3b0289718fc295f362753845c41a0c94ee"
+  integrity sha1-LrfcOwKJcY/ClfNidThFxBoMlO4=
 
 yargs@^13.3.2:
   version "13.3.2"
@@ -12384,6 +12543,19 @@ yargs@^15.4.1:
     which-module "^2.0.0"
     y18n "^4.0.0"
     yargs-parser "^18.1.2"
+
+yargs@^16.2.0:
+  version "16.2.0"
+  resolved "https://sumasaas.jfrog.io/artifactory/api/npm/front-vr-package-snapshots/yargs/-/yargs-16.2.0.tgz#1c82bf0f6b6a66eafce7ef30e376f49a12477f66"
+  integrity sha1-HIK/D2tqZur85+8w43b0mhJHf2Y=
+  dependencies:
+    cliui "^7.0.2"
+    escalade "^3.1.1"
+    get-caller-file "^2.0.5"
+    require-directory "^2.1.1"
+    string-width "^4.2.0"
+    y18n "^5.0.5"
+    yargs-parser "^20.2.2"
 
 yocto-queue@^0.1.0:
   version "0.1.0"

@@ -1,0 +1,17 @@
+{
+  "data": {
+    "id": "1f549bac-d90e-4d4c-bd0c-36a065613391",
+    "type": "estimate",
+    "attributes": {
+      "country": "ee",
+      "state": null,
+      "electricity_unit": "kwh",
+      "electricity_value": 123412340.0,
+      "estimated_at": "2021-10-03T01:28:11.243Z",
+      "carbon_g": 82562855460,
+      "carbon_lb": 182019938.87,
+      "carbon_kg": 82562855.46,
+      "carbon_mt": 82562.86
+    }
+  }
+}

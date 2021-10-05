@@ -1,0 +1,28 @@
+- request:
+    url: /estimates
+    method: get
+  response:
+    - status: 200
+      latency: 500
+      headers:
+        content-type: application/json
+      file: ./estimates/get-200.json
+- request:
+    url: /estimates
+    method: post
+    post: 'FR'
+  response:
+    - status: 500
+      latency: 500
+      headers:
+        content-type: application/json
+      body: {'message': 'Error!'}
+- request:
+    url: /estimates
+    method: post
+  response:
+    - status: 201
+      latency: 500
+      headers:
+        content-type: application/json
+      file: ./post-201.json

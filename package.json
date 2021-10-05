@@ -30,7 +30,9 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "SERVICE_URL=https://www.carboninterface.com react-scripts start",
+    "start:stubs": "SERVICE_URL=http://localhost:8882 concurrently --kill-others \"react-scripts start\" \"yarn stubby\"",
+    "stubby": "stubby -d stubs/stubby-config.yml -w -q",
     "build": "react-scripts build",
     "test": "react-scripts test --coverage",
     "test:watch": "react-scripts test --coverage -w",
@@ -58,6 +60,7 @@
     "@types/redux-logger": "^3.0.9",
     "@typescript-eslint/eslint-plugin": "4.32.0",
     "@typescript-eslint/parser": "4.32.0",
+    "concurrently": "^6.3.0",
     "css-mediaquery": "^0.1.2",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
@@ -68,7 +71,8 @@
     "jest-fetch-mock": "^3.0.3",
     "prettier": "2.4.1",
     "pretty-quick": "^3.1.1",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "stubby": "^5.1.0"
   },
   "jest": {
     "coveragePathIgnorePatterns": [

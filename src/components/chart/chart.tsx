@@ -122,7 +122,7 @@ const Chart: React.FC<ChartProps> = ({selectedBar}) => {
                 <XAxis dataKey="name" allowDuplicatedCategory={false} />
                 <YAxis />
                 <Tooltip />
-                <Bar dataKey="CO2" onClick={handleBarClick}>
+                <Bar dataKey="CO2" onClick={handleBarClick} maxBarSize={40}>
                   {chartData.map((entry, index) => (
                     <Cell
                       cursor="pointer"

@@ -8,7 +8,7 @@ interface EstimationResponse {
 export const estimationApi = createApi({
   reducerPath: 'estimationApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://www.carboninterface.com/api/v1',
+    baseUrl: `${process.env.REACT_APP_SERVICE_URL}/api/v1`,
     prepareHeaders: (headers) => {
       const API_KEY = process.env.REACT_APP_SERVICE_API_KEY;
       headers.set('Authorization', `Bearer ${API_KEY}`);

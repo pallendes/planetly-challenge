@@ -1,0 +1,36 @@
+[
+  {
+    "data": {
+      "id": "811bddd3-4e3c-4a71-8443-de647e07c3b4",
+      "type": "estimate",
+      "attributes": {
+        "country": "us",
+        "state": "fl",
+        "electricity_unit": "mwh",
+        "electricity_value": 42.0,
+        "estimated_at": "2021-10-02T17:26:57.044Z",
+        "carbon_g": 16710476,
+        "carbon_lb": 36840.29,
+        "carbon_kg": 16710.48,
+        "carbon_mt": 16.71
+      }
+    }
+  },
+  {
+    "data": {
+      "id": "bf3fe1ec-be59-4270-8414-ea7a45a137cd",
+      "type": "estimate",
+      "attributes": {
+        "country": "ca",
+        "state": null,
+        "electricity_unit": "mwh",
+        "electricity_value": 18.0,
+        "estimated_at": "2021-10-02T22:04:25.073Z",
+        "carbon_g": 7161632,
+        "carbon_lb": 15788.7,
+        "carbon_kg": 7161.63,
+        "carbon_mt": 7.16
+      }
+    }
+  }
+]
