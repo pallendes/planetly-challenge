@@ -20,15 +20,11 @@ import {
   Alert,
 } from '@mui/material';
 import {availableCountries} from '../utils';
-import {
-  useCreateEstimationMutation,
-  useGetEstimationsQuery,
-} from 'services/estimation-api';
+import {useCreateEstimationMutation} from 'services/estimation-api';
 import {EstimationForm, NotificationSeverity} from './types';
 
 const Form: React.FC = () => {
   const [createEstimation, {isLoading}] = useCreateEstimationMutation();
-  const {refetch} = useGetEstimationsQuery();
 
   const [showNotification, setShowNotification] = useState<boolean>(false);
   const [notificationSeverity, setNotificationSeverity] =
@@ -68,8 +64,6 @@ const Form: React.FC = () => {
         severity: 'success',
         message: 'Estimation created!',
       });
-
-      refetch();
     } catch (e) {
       setShowNotification(true);
       setNotificationSeverity({

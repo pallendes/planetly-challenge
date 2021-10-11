@@ -40,6 +40,7 @@ export const estimationApi = createApi({
         method: 'POST',
         body,
       }),
+      invalidatesTags: ['Estimation'],
     }),
   }),
 });
